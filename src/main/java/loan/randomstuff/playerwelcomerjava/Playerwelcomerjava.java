@@ -1,5 +1,6 @@
 package loan.randomstuff.playerwelcomerjava;
 
+import net.kyori.adventure.text.minimessage.*;
 import net.kyori.adventure.text.Component;
 import org.bukkit.event.EventHandler;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -25,6 +26,6 @@ public final class Playerwelcomerjava extends JavaPlugin implements Listener {
 
     @EventHandler
     public void onPlayerQuit(PlayerQuitEvent event) {
-        event.getPlayer().sendMessage(Component.text(event.getplayer().getName()) + " has left."));
+        event.getPlayer().sendMessage(Component.text(event.getPlayer().getName() + " has left."));
     }
 }
