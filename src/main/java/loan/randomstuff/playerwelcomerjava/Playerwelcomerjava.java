@@ -21,4 +21,10 @@ public final class Playerwelcomerjava extends JavaPlugin implements Listener {
         event.getPlayer().sendMessage(Component.text(event.getPlayer().getName() + " has joined."));
 
     }
+
+
+    @EventHandler
+    public void onPlayerQuit(PlayerQuitEvent event) {
+        event.getPlayer().sendMessage(Component.text(event.getplayer().getName()) + " has left."));
+    }
 }
