@@ -1,4 +1,4 @@
 name: playerwelcomerjava
-version: '1.0-SNAPSHOT'
+version: '1.0'
 main: loan.randomstuff.playerwelcomerjava.Playerwelcomerjava
 api-version: '1.21.8'
