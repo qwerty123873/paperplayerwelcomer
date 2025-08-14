@@ -1,5 +1,8 @@
 package loan.randomstuff.playerwelcomerjava;
 
+import net.kyori.adventure.text.format.NamedTextColor;
+import org.bukkit.Bukkit;
+import net.kyori.adventure.text.format.TextColor;
 import net.kyori.adventure.text.minimessage.*;
 import net.kyori.adventure.text.Component;
 import org.bukkit.event.EventHandler;
@@ -21,13 +24,23 @@ public final class Playerwelcomerjava extends JavaPlugin implements Listener {
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         event.joinMessage(null);
-        event.getPlayer().sendMessage(Component.text(event.getPlayer().getName() + " has joined."));
+        Component playerWelcome = Component.text("You're connected to the ")
+                .color(TextColor.color(63, 176, 120))
+                .append(Component.text("manhunt ", NamedTextColor.AQUA))
+                .append(Component.text("server."))
+                .color(TextColor.color(63, 176, 120));
+        event.getPlayer().sendMessage(playerWelcome);
+        Component joinBroadcast = Component.text(event.getPlayer().getName() + " has connected to the server!")
+                        .color(TextColor.color(255, 132, 0));
+        Bukkit.broadcast(joinBroadcast);
 
     }
 
     @EventHandler
     public void onPlayerQuit(PlayerQuitEvent event) {
         event.quitMessage(null);
-        event.getPlayer().sendMessage(Component.text(event.getPlayer().getName() + " has left."));
+        Component playerDisconnect = Component.text(event.getPlayer().getName() + " has disconnected from the server.")
+                .color(TextColor.color(255, 0, 0));
+        Bukkit.broadcast(playerDisconnect);
     }
 }
