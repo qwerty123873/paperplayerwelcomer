@@ -31,7 +31,7 @@ public final class Playerwelcomerjava extends JavaPlugin implements Listener {
                 .color(TextColor.color(63, 176, 120));
         event.getPlayer().sendMessage(playerWelcome);
         Component joinBroadcast = Component.text(event.getPlayer().getName() + " has connected to the server!")
-                        .color(TextColor.color(255, 132, 0));
+                        .color(TextColor.color(118, 186, 0));
         Bukkit.broadcast(joinBroadcast);
 
     }
