@@ -9,6 +9,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.event.player.PlayerQuitEvent.QuitReason;
 import org.bukkit.event.player.PlayerEvent;
 import org.bukkit.event.Listener;
 
@@ -39,7 +40,9 @@ public final class Playerwelcomerjava extends JavaPlugin implements Listener {
     @EventHandler
     public void onPlayerQuit(PlayerQuitEvent event) {
         event.quitMessage(null);
-        Component playerDisconnect = Component.text(event.getPlayer().getName() + " has disconnected from the server.")
+        PlayerQuitEvent.QuitReason reason = event.getReason();
+        String quitReason = reason.toString();
+        Component playerDisconnect = Component.text(event.getPlayer().getName() + " has disconnected from the server, with reason: " + quitReason + ".")
                 .color(TextColor.color(255, 0, 0));
         Bukkit.broadcast(playerDisconnect);
     }
