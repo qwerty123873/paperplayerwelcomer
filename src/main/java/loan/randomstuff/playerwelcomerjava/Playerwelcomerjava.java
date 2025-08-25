@@ -15,13 +15,15 @@ import org.bukkit.event.player.PlayerEvent;
 import org.bukkit.event.Listener;
 
 public final class Playerwelcomerjava extends JavaPlugin implements Listener {
+    String serverName;
+
     @Override
     public void onEnable() {
         // Plugin startup logic
         getServer().getPluginManager().registerEvents(this, this);
         saveResource("config.yml", /* replace */ false);
         FileConfiguration config = this.getConfig();
-        String serverName = config.getString("server_name");
+        serverName = config.getString("server_name");
         getLogger().info("You can set the server name by changing the server_name value in playerwelcomerjava/config.yml");
         getLogger().info("Currently set name: " + serverName);
         getLogger().info("Plugin Loaded!");
@@ -30,8 +32,6 @@ public final class Playerwelcomerjava extends JavaPlugin implements Listener {
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         event.joinMessage(null);
-        FileConfiguration config = this.getConfig();
-        String serverName = config.getString("server_name");
         Component playerWelcome = Component.text("You're connected to ")
                 .color(TextColor.color(63, 176, 120))
                 .append(Component.text(serverName, NamedTextColor.AQUA))
