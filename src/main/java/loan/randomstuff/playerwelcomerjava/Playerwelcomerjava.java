@@ -10,8 +10,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
-import org.bukkit.event.player.PlayerQuitEvent.QuitReason;
-import org.bukkit.event.player.PlayerEvent;
 import org.bukkit.event.Listener;
 
 public final class Playerwelcomerjava extends JavaPlugin implements Listener {
@@ -25,7 +23,7 @@ public final class Playerwelcomerjava extends JavaPlugin implements Listener {
         FileConfiguration config = this.getConfig();
         serverName = config.getString("server_name");
         getLogger().info("You can set the server name by changing the server_name value in playerwelcomerjava/config.yml");
-        getLogger().info("Currently set name: " + serverName);
+        getLogger().info("Current server name: " + serverName);
         getLogger().info("Plugin Loaded!");
     }
 
